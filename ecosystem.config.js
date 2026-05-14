@@ -24,7 +24,7 @@ export default {
     {
       name: 'persona-webhook',
       script: './webhook.js',
-      cwd: '/root/persona-mlt',
+      cwd: '/var/www/persona-mlt',
 
       // 进程管理
       instances: 1,

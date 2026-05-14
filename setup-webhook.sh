@@ -19,7 +19,7 @@ echo "🚀 开始配置 Webhook 自动部署..."
 echo "=================================="
 echo ""
 
-PROJECT_DIR="/root/persona-mlt"
+PROJECT_DIR="/var/www/persona-mlt"
 cd "$PROJECT_DIR"
 
 # ---- 1. 确认已安装 express ----

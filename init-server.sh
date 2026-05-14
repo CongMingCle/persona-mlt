@@ -44,13 +44,15 @@ ufw allow 443/tcp 2>/dev/null || echo ""
 
 # 6. 克隆项目并构建
 echo "📥 克隆项目..."
-cd /root
+mkdir -p /var/www
+cd /var/www
 if [ -d "persona-mlt" ]; then
     echo "   项目已存在，跳过克隆"
+    cd persona-mlt
 else
     git clone https://github.com/CongMingCle/persona-mlt.git
+    cd persona-mlt
 fi
-cd persona-mlt
 
 echo "📦 安装依赖..."
 npm install

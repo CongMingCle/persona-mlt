@@ -4,7 +4,7 @@
 
 set -e
 
-PROJECT_DIR="/root/persona-mlt"
+PROJECT_DIR="/var/www/persona-mlt"
 NGINX_CONF_DIR="/etc/nginx/conf.d"
 SITE_DOMAIN="8.130.187.76"   # 当前使用IP，域名实名后改为您的域名
 
@@ -22,8 +22,8 @@ else
 fi
 
 # 2. 安装依赖
-echo "📦 安装依赖..."
-npm install --production
+echo "📦 安装依赖（含构建所需依赖）..."
+npm install
 
 # 3. 构建生产版本
 echo "🔨 构建项目..."
@@ -44,7 +44,7 @@ server {
     gzip_min_length 1000;
     gzip_comp_level 6;
 
-    root /root/persona-mlt/dist;
+    root /var/www/persona-mlt/dist;
     index index.html;
 
     # 静态资源缓存
