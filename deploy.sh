@@ -82,7 +82,14 @@ NGINX_EOF
     fi
 fi
 
-# 5. 重载 Nginx
+# 5. 重启 Webhook 服务（如果存在）
+echo "🔄 重启 Webhook 服务..."
+if pm2 list 2>/dev/null | grep -q persona-webhook; then
+    pm2 restart persona-webhook
+    echo "   ✅ Webhook 服务已重启"
+fi
+
+# 6. 重载 Nginx
 echo "🔄 重载 Nginx..."
 nginx -t && nginx -s reload
 
